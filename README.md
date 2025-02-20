@@ -2,23 +2,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Mini App</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Optionally, include a stylesheet here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mini App</title>
+  <!-- Load Telegram Web Apps API -->
+  <script src="https://telegram.org/js/telegram-webapp.js"></script>
+  <script>
+    function onLoad() {
+      if (window.Telegram && window.Telegram.WebApp) {
+        // Notify Telegram that your mini app is ready
+        Telegram.WebApp.ready();
+        console.log("Telegram WebApp initialized");
+      }
+    }
+  </script>
 </head>
-<body>
-    <h1>Welcome to My Mini App!</h1>
-    <p>This page is loaded inside Telegram.</p>
-    
-    <!-- Telegram Web App initialization -->
-    <script>
-        // Check if the Telegram Web App object is available
-        if (window.Telegram && Telegram.WebApp) {
-            Telegram.WebApp.ready();
-            // You can also access parameters sent by Telegram if needed:
-            console.log('Web App initialized', Telegram.WebApp.initData);
-        }
-    </script>
+<body onload="onLoad()">
+  <h1>Welcome to My Mini App!</h1>
+  <p>This mini app is integrated with Telegram.</p>
 </body>
 </html>
